@@ -1,0 +1,32 @@
+# Caso de Teste – Login com Formato de Usuário/Email Inválido
+
+**ID**: CT-004
+**Funcionalidade**: Login
+**Tipo de Teste**: Funcional / Negativo / Validação de Formato / Manual
+**Pré-condição**: O simulador de login (`login.html`) está aberto no navegador.
+**Ambiente**: Navegador Web (Brave)
+
+## Objetivo
+Verificar se o sistema impede o login quando o campo "Usuário ou Email" está preenchido com um formato inválido (sem "@") e exibe uma mensagem de erro apropriada.
+
+## Passos para execução
+1. Acessar o simulador de login: Abra o arquivo `login.html` no seu navegador.
+2. No campo "Usuário ou Email", inserir um valor sem formato de email, por exemplo: `usuarioinvalido`
+3. No campo "Senha", inserir o valor: `12345`
+4. Clicar no botão "Entrar".
+
+## Resultado Esperado
+Uma mensagem de erro é exibida, informando "Formato de e-mail inválido para o usuário."
+
+## Dados de Teste
+
+| Campo             | Valor             |
+| :---------------- | :---------------- |
+| Usuário/Email     | usuarioinvalido   |
+| Senha             | 12345             |
+
+## Resultado Real
+_Ao preencher dados de login incorretos o sistema informa que o formato de e-mail é inválido para o usuário_
+
+## Status
+_Aprovado_

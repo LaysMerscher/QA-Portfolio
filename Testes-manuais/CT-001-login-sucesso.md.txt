@@ -1,0 +1,32 @@
+# Caso de Teste – Login com Sucesso (Usuário Padrão)
+
+**ID**: CT-001
+**Funcionalidade**: Login
+**Tipo de Teste**: Funcional / Manual
+**Pré-condição**: O simulador de login (`login.html`) está aberto no navegador.
+**Ambiente**: Navegador Web (Brave)
+
+## Objetivo
+Verificar se o sistema permite o login bem-sucedido com credenciais válidas de um usuário padrão.
+
+## Passos para execução
+1. Acessar o simulador de login: Abra o arquivo `login.html` no seu navegador.
+2. No campo "Usuário ou Email", inserir o valor: `teste@email.com`
+3. No campo "Senha", inserir o valor: `12345`
+4. Clicar no botão "Entrar".
+
+## Resultado Esperado
+Uma mensagem de sucesso é exibida, informando "Login realizado com sucesso! Bem-vindo(a)!".
+
+## Dados de Teste
+
+| Campo             | Valor             |
+| :---------------- | :---------------- |
+| Usuário/Email     | teste@email.com   |
+| Senha             | 12345             |
+
+## Resultado Real
+_O login foi realizado com sucesso_
+
+## Status
+_Aprovado_

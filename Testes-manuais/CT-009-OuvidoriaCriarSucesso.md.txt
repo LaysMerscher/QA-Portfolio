@@ -1,0 +1,38 @@
+# Caso de Teste – Criar Ouvidoria com Sucesso
+
+**ID**: CT-009
+**Funcionalidade**: Registro de Ouvidoria
+**Tipo de Teste**: Funcional / Manual
+**Pré-condição**: O simulador de ouvidoria (`ouvidoria-simulada.html`) está aberto no navegador.
+**Ambiente**: Navegador Web (Brave)
+
+## Objetivo
+Verificar se o sistema permite o registro de uma ouvidoria com todos os campos obrigatórios preenchidos e gera um número de protocolo.
+
+## Passos para execução
+1.  Acessar o simulador de ouvidoria: Abra o arquivo `ouvidoria-simulada.html` no seu navegador.
+2.  Preencher o campo "Nome Completo": `Carla Silva`
+3.  Preencher o campo "E-mail": `carla.s@dominio.com`
+4.  Selecionar a opção "Infraestrutura" no dropdown "Categoria".
+5.  Preencher o campo "Descrição da Reclamação": `Poste de luz quebrado na esquina da Rua da Felicidade.`
+6.  Garantir que a caixa "Registrar como Anônimo" **NÃO** esteja marcada.
+7.  Clicar no botão "Registrar Reclamação".
+
+## Resultado Esperado
+O sistema exibe uma caixa de mensagem de sucesso (verde claro) com a confirmação "Ouvidoria registrada com sucesso!" e um número de protocolo gerado (Ex: "Seu número de protocolo é: OUVID-001"). Os campos do formulário devem ser limpos, exceto pela mensagem de sucesso.
+
+## Dados de Teste
+
+| Campo                   | Valor                      |
+| :---------------------- | :------------------------- |
+| Nome Completo           | Carla Silva                |
+| E-mail                  | carla.s@dominio.com        |
+| Categoria               | Infraestrutura             |
+| Descrição da Reclamação | Poste de luz quebrado na esquina da Rua da Felicidade. |
+| Anônimo                 | Não                        |
+
+## Resultado Real
+_Ao preencher os dados e criar uma ouvidoria, a mesma é criada com sucesso e é gerado um número de protocolo_
+
+## Status
+_Aprovado_

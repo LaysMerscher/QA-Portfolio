@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Login - Portfólio QA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .login-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .success {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Acessar Sistema</h2>
+        <input type="text" id="username" placeholder="Usuário ou Email">
+        <input type="password" id="password" placeholder="Senha">
+        <button onclick="performLogin()">Entrar</button>
+        <p id="message" class="message"></p>
+    </div>
+
+    <script>
+        function performLogin() {
+            const usernameInput = document.getElementById('username').value.trim();
+            const passwordInput = document.getElementById('password').value.trim();
+            const messageDisplay = document.getElementById('message');
+
+            messageDisplay.className = 'message'; // Reseta as classes de mensagem
+
+            // Dados fictícios para validação
+            const validUser = "teste@email.com";
+            const validPass = "12345";
+            const adminUser = "admin";
+            const adminPass = "admin123";
+
+            if (usernameInput === '' || passwordInput === '') {
+                messageDisplay.textContent = "Por favor, preencha todos os campos.";
+                messageDisplay.classList.add('error');
+            } else if (usernameInput === validUser && passwordInput === validPass) {
+                messageDisplay.textContent = "Login realizado com sucesso! Bem-vindo(a)!";
+                messageDisplay.classList.add('success');
+                // Aqui você poderia redirecionar para outra página (simulada)
+            } else if (usernameInput === adminUser && passwordInput === adminPass) {
+                 messageDisplay.textContent = "Login de Administrador realizado com sucesso!";
+                 messageDisplay.classList.add('success');
+            } else if (!usernameInput.includes('@') && usernameInput !== adminUser) {
+                messageDisplay.textContent = "Formato de e-mail inválido para o usuário.";
+                messageDisplay.classList.add('error');
+            }
+            else {
+                messageDisplay.textContent = "Credenciais inválidas. Verifique seu usuário e senha.";
+                messageDisplay.classList.add('error');
+            }
+        }
+    </script>
+</body>
+</html>

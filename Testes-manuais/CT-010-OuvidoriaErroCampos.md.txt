@@ -1,0 +1,38 @@
+# Caso de Teste – Erro ao Criar Ouvidoria (Campos Obrigatórios Vazios)
+
+ID CT-010
+Funcionalidade Registro de Ouvidoria
+Tipo de Teste Funcional  Negativo  Validação de Entrada  Manual
+Pré-condição O simulador de ouvidoria (`ouvidoria-simulada.html`) está aberto no navegador.
+Ambiente Navegador Web (Brave)
+
+## Objetivo
+Verificar se o sistema impede o registro de uma ouvidoria quando campos obrigatórios (não anônimos) não são preenchidos e exibe uma mensagem de erro apropriada.
+
+## Passos para execução
+1.  Acessar o simulador de ouvidoria Abra o arquivo `ouvidoria-simulada.html` no seu navegador.
+2.  Preencher o campo Nome Completo `Mário`
+3.  Deixar o campo E-mail vazio.
+4.  Selecionar a opção Serviço Público no dropdown Categoria.
+5.  Preencher o campo Descrição da Reclamação `Vazamento de esgoto na Rua das Águas.`
+6.  Garantir que a caixa Registrar como Anônimo NÃO esteja marcada.
+7.  Clicar no botão Registrar Reclamação.
+
+## Resultado Esperado
+O sistema exibe uma caixa de mensagem de erro (vermelho claro) com a mensagem Erro Por favor, preencha todos os campos obrigatórios (marcados com ). O registro não deve ser efetuado e nenhum protocolo deve ser gerado.
+
+## Dados de Teste
+
+ Campo                    Valor                      
+ ----------------------  ------------------------- 
+ Nome Completo            Mário                      
+ E-mail                   _(Vazio)_                  
+ Categoria                Serviço Público              
+ Descrição da Reclamação  Vazamento de esgoto na Rua das Águas. 
+ Anônimo                  Não                        
+
+## Resultado Real
+_Ao tentar realizar um novo registro de reclamação o fato de não preencher todos os dados gera uma mensagem de erro:Por favor, preencha todos os campos obrigatórios (marcados com *)._
+
+## Status
+_Aprovado_

@@ -1,0 +1,30 @@
+# Caso de Teste – Busca de Processo por Palavra-Chave Existente
+
+**ID**: CT-006
+**Funcionalidade**: Busca de Processos (Simulador)
+**Tipo de Teste**: Funcional / Manual
+**Pré-condição**: O simulador de busca (`busca-processo-simples.html`) está aberto no navegador.
+**Ambiente**: Navegador Web (Brave)
+
+## Objetivo
+Verificar se o sistema permite buscar processos por uma palavra-chave presente na ementa do processo e exibir os resultados correspondentes.
+
+## Passos para execução
+1. Acessar o simulador de busca: Abra o arquivo `busca-processo-simples.html` no seu navegador.
+2. No campo de busca, inserir a palavra-chave: `leitura`
+3. Clicar no botão "Buscar Processo".
+
+## Resultado Esperado
+O sistema exibe uma caixa de sucesso (verde claro) com os detalhes do processo "123/2025", pois sua ementa contém "leitura".
+
+## Dados de Teste
+
+| Campo de Entrada   | Valor    |
+| :----------------- | :------- |
+| Palavra-chave      | leitura  |
+
+## Resultado Real
+_Ao buscar uma palavra chave do conteúdo do processo o sistema informa que o processo não foi encontrado_
+
+## Status
+_Reprovado_

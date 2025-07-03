@@ -1,0 +1,32 @@
+# Caso de Teste – Login com Campo de Usuário/Email Vazio
+
+**ID**: CT-003
+**Funcionalidade**: Login
+**Tipo de Teste**: Funcional / Negativo / Validação de Campo / Manual
+**Pré-condição**: O simulador de login (`login.html`) está aberto no navegador.
+**Ambiente**: Navegador Web (Brave)
+
+## Objetivo
+Verificar se o sistema impede o login quando o campo "Usuário ou Email" está vazio e exibe uma mensagem de validação.
+
+## Passos para execução
+1. Acessar o simulador de login: Abra o arquivo `login.html` no seu navegador.
+2. Deixar o campo "Usuário ou Email" vazio.
+3. No campo "Senha", inserir o valor: `12345`
+4. Clicar no botão "Entrar".
+
+## Resultado Esperado
+Uma mensagem de erro é exibida, informando "Por favor, preencha todos os campos."
+
+## 🛠 Dados de Teste
+
+| Campo             | Valor     |
+| :---------------- | :-------- |
+| Usuário/Email     | _(Vazio)_ |
+| Senha             | 12345     |
+
+## Resultado Real
+_Ao tentar realizar login faltando usuário ou senha o sistema solicita que todos os campos sejam preenchidos_
+
+## Status
+_Aprovado_

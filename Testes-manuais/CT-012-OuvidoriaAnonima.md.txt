@@ -1,0 +1,46 @@
+# Caso de Teste – Registro de Ouvidoria Anônima (Não Consultável)
+
+**ID**: CT-012
+**Funcionalidade**: Registro e Consulta de Ouvidoria
+**Tipo de Teste**: Funcional / Negativo / Manual
+**Pré-condição**: O simulador de ouvidoria (`ouvidoria-simulada.html`) está aberto no navegador.
+**Ambiente**: Navegador Web (Brave)
+
+## Objetivo
+Verificar se o sistema permite o registro de uma ouvidoria como anônima, não gera um protocolo consultável para ela e informa isso ao usuário.
+
+## Passos para execução
+1.  Acessar o simulador de ouvidoria: Abra o arquivo `ouvidoria-simulada.html` no seu navegador.
+2.  Marcar a caixa **"Registrar como Anônimo"**.
+    * Observe que os campos "Nome Completo" e "E-mail" devem ser ocultados ou desativados.
+3.  Selecionar a opção "Outros" no dropdown "Categoria".
+4.  Preencher o campo "Descrição da Reclamação": `Sugestão para criação de mais ciclovias na cidade.`
+5.  Clicar no botão "Registrar Reclamação".
+6.  **Verificar mensagem de sucesso para anônimo:** Observe a mensagem exibida.
+7.  **Tentar consultar a ouvidoria anônima (cenário negativo de consulta):**
+    * No campo "Digite o número de protocolo" na seção de Consulta (abaixo), tente digitar qualquer protocolo que *seria* o próximo na sequência se não fosse anônimo (Ex: `OUVID-001`, `OUVID-ANONIMO`).
+    * Clicar no botão "Consultar".
+
+## Resultado Esperado
+1.  **Registro Anônimo:**
+    * Os campos "Nome Completo" e "E-mail" são ocultados/desativados.
+    * Uma caixa de mensagem de sucesso (verde claro) aparece, informando "Ouvidoria anônima registrada com sucesso!" e explicitamente dizendo que "Como o registro é anônimo, nenhum protocolo será gerado para consulta."
+2.  **Consulta (negativo):**
+    * A tentativa de consultar este registro (ou qualquer outro que não tenha gerado protocolo consultável) deve resultar em uma caixa de mensagem de erro (vermelho claro) com a informação de que o protocolo "não foi encontrado. Ou é um registro anônimo ou o número está incorreto."
+
+## Dados de Teste
+
+| Campo                   | Valor                      |
+| :---------------------- | :------------------------- |
+| Nome Completo           | _(Não preenchido / Oculto)_ |
+| E-mail                  | _(Não preenchido / Oculto)_ |
+| Categoria               | Outros                     |
+| Descrição da Reclamação | Sugestão para criação de mais ciclovias na cidade. |
+| Anônimo                 | Sim                        |
+| Protocolo Tentativa de Consulta | (Qualquer protocolo não gerado para consulta) |
+
+## Resultado Real
+_Ao realizar uma ouvidoria na modalidade anônimo o sistema não gera nenhum número de procotolo para consulta_
+
+## Status
+_Aprovado_

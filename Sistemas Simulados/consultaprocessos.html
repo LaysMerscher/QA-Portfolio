@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Busca de Processo - Portfólio QA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 500px; /* Reduzi um pouco a largura para um visual mais limpo */
+        }
+        h2 {
+            margin-bottom: 25px;
+            color: #333;
+            font-size: 1.8em;
+        }
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .input-group input {
+            flex-grow: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        .input-group button {
+            padding: 12px 20px;
+            background-color: #007bff; /* Cor azul, como o login */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        .input-group button:hover {
+            background-color: #0056b3;
+        }
+        .message-box {
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: left;
+            min-height: 80px;
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+        .message-box.success {
+            border: 1px solid #a3e6a3;
+            background-color: #e6ffe6;
+            color: #28a745;
+        }
+        .message-box.error {
+            border: 1px solid #ffb3b3;
+            background-color: #ffe6e6;
+            color: #d9534f;
+            font-weight: bold;
+        }
+        .message-box h3 {
+            color: #0056b3;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        .message-box p {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Simulador de Consulta de Processos</h2>
+
+        <div class="input-group">
+            <input type="text" id="processoNumeroInput" placeholder="Ex: 123/2025 ou 999/2024">
+            <button onclick="realizarBusca()">Buscar Processo</button>
+        </div>
+
+        <div id="resultadoBusca" class="message-box">
+            <p>Digite um número de processo e clique em "Buscar Processo".</p>
+        </div>
+    </div>
+
+    <script>
+        // Dados fictícios de processos para simulação
+        const processosFicticios = {
+            "123/2025": {
+                numero: "123/2025",
+                protocolo: "100/2025",
+                tipo: "Projeto de Lei",
+                ementa: "Dispõe sobre a criação de programa de incentivo à leitura.",
+                status: "Em Tramitação",
+                setor: "Comissão de Educação",
+                autores: "Vereador João Silva"
+            },
+            "456/2024": {
+                numero: "456/2024",
+                protocolo: "200/2024",
+                tipo: "Indicação",
+                ementa: "Sugere pavimentação de rua no bairro Central.",
+                status: "Aprovado",
+                setor: "Secretaria de Obras",
+                autores: "Vereadora Maria Costa"
+            }
+        };
+
+        function realizarBusca() {
+            const inputField = document.getElementById('processoNumeroInput');
+            const outputBox = document.getElementById('resultadoBusca');
+            const termoBusca = inputField.value.trim();
+
+            // Limpa o estado anterior
+            outputBox.innerHTML = '';
+            outputBox.classList.remove('success', 'error');
+
+            if (termoBusca === "") {
+                outputBox.classList.add('error');
+                outputBox.innerHTML = "<p>Por favor, digite um número de processo.</p>";
+                return;
+            }
+
+            const processo = processosFicticios[termoBusca];
+
+            if (processo) {
+                outputBox.classList.add('success');
+                outputBox.innerHTML = `
+                    <h3>Processo Encontrado:</h3>
+                    <p><strong>Número:</strong> ${processo.numero}</p>
+                    <p><strong>Protocolo:</strong> ${processo.protocolo}</p>
+                    <p><strong>Tipo:</strong> ${processo.tipo}</p>
+                    <p><strong>Ementa:</strong> ${processo.ementa}</p>
+                    <p><strong>Status:</strong> ${processo.status}</p>
+                    <p><strong>Setor:</strong> ${processo.setor}</p>
+                    <p><strong>Autores:</strong> ${processo.autores}</p>
+                `;
+            } else {
+                outputBox.classList.add('error');
+                outputBox.innerHTML = `<p>O processo "<strong>${termoBusca}</strong>" não foi encontrado.</p>`;
+            }
+        }
+    </script>
+</body>
+</html>

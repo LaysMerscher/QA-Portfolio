@@ -1,0 +1,32 @@
+# Caso de Teste – Login com Senha Inválida
+
+**ID**: CT-002
+**Funcionalidade**: Login
+**Tipo de Teste**: Funcional / Negativo / Manual
+**Pré-condição**: O simulador de login (`login.html`) está aberto no navegador.
+**Ambiente**: Navegador Web (Brave)
+
+## Objetivo
+Verificar se o sistema impede o login com uma senha inválida para um usuário válido e exibe uma mensagem de erro apropriada.
+
+## Passos para execução
+1. Acessar o simulador de login: Abra o arquivo `login.html` no seu navegador.
+2. No campo "Usuário ou Email", inserir o valor: `teste@email.com`
+3. No campo "Senha", inserir uma senha inválida, por exemplo: `senhaerrada`
+4. Clicar no botão "Entrar".
+
+## Resultado Esperado
+Uma mensagem de erro é exibida, informando "Credenciais inválidas. Verifique seu usuário e senha."
+
+## Dados de Teste
+
+| Campo             | Valor             |
+| :---------------- | :---------------- |
+| Usuário/Email     | teste@email.com   |
+| Senha             | senhaerrada       |
+
+## Resultado Real
+_Ao realizar o login com as credencias inválidas o sistema não permite o login e exibe a mensagem:Credenciais inválidas. Verifique seu usuário e senha_
+
+## Status
+_Aprovado_

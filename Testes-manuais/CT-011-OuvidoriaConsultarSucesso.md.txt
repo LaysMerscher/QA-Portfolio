@@ -1,0 +1,36 @@
+# Caso de Teste – Consultar Ouvidoria por Protocolo (Sucesso)
+
+**ID**: CT-011
+**Funcionalidade**: Consulta de Ouvidoria
+**Tipo de Teste**: Funcional / Manual
+**Pré-condição**:
+1.  O simulador de ouvidoria (`ouvidoria-simulada.html`) está aberto no navegador.
+2.  Uma ouvidoria **NÃO anônima** já foi registrada e seu número de protocolo é conhecido.
+**Ambiente**: Navegador Web (Brave)
+
+## Objetivo
+Verificar se o sistema permite consultar os detalhes de uma ouvidoria através de seu número de protocolo e exibe as informações corretas.
+
+## Passos para execução
+1.  **Importante:** Primeiro, registre uma ouvidoria **NÃO anônima** para obter um protocolo.
+    * No simulador (`ouvidoria-simulada.html`), preencha um registro válido (ex: Nome: `Alexandre`, Email: `alex.teste@email.com`, Categoria: `Serviço Público`, Descrição: `Barulho excessivo de obra após o horário permitido.`).
+    * Clique em "Registrar Reclamação".
+    * **Anote o número de protocolo** que aparecer na mensagem de sucesso (Ex: `OUVID-001`, `OUVID-002`, etc., dependendo de quantos você já registrou).
+2.  Na seção "Consultar Ouvidoria" (na parte inferior da página).
+3.  No campo "Digite o número de protocolo" (`id="inputProtocoloConsulta"`), digitar o **número de protocolo que você anotou no passo 1** (Ex: `OUVID-001`).
+4.  Clicar no botão "Consultar".
+
+## Resultado Esperado
+O sistema exibe uma caixa de mensagem de sucesso (verde claro) com os detalhes da ouvidoria correspondente ao protocolo digitado (Nome, E-mail, Categoria, Descrição e Data de Registro). O campo de protocolo de consulta deve ser limpo.
+
+## Dados de Teste
+
+| Campo                   | Valor                                                    |
+| :---------------------- | :------------------------------------------------------- |
+| Protocolo a Consultar   | _(Anote o protocolo gerado no Passo 1. Ex: OUVID-001)_ |
+
+## Resultado Real
+_Após o registro de uma ouvidoria, ao consultar através do protocolo correto o sistema trás todas as informações referentes a mesma de forma correta_
+
+## Status
+_Aprovado_
